@@ -26,6 +26,4 @@ const haberSchema = new mongoose.Schema({
     }
 });
 
-// Model'i oluştur ve dışa aktar
-// MongoDB'de 'haberler' adında bir koleksiyon oluşturacak
 module.exports = mongoose.model('Haber', haberSchema);
