@@ -61,4 +61,4 @@ app.get(/^\/(?!api).*/, (req, res) => {
 
 const PORT = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log(`Sunucu ${process.env.NODE_ENV || 'production'} modunda ${PORT} portunda çalışıyor...`));
+app.listen(PORT, () => console.log(`Sunucu ${process.env.NODE_ENV || 'development'} modunda ${PORT} portunda çalışıyor...`));
