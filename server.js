@@ -23,7 +23,8 @@ const app = express();
 app.use(cors());
 
 // Gelen isteklerdeki JSON verilerini okuyabilmek için
-app.use(express.json());
+app.use(express.json({ limit: '100mb' }));
+app.use(express.urlencoded({ limit: '100mb', extended: true }));
 
 
 // --- API ROTALARI ---
@@ -36,6 +37,7 @@ app.use('/api/etkinlikler', require('./routes/etkinlikRoutes'));
 app.use('/api/iletisim', require('./routes/iletisimRoutes'));
 app.use('/api/yayinlar', require('./routes/yayinRoutes.js'));
 app.use('/api/bolge-yayinlari', require('./routes/bolgeYayinRoutes'));
+app.use('/api/books', require('./routes/bookReadRoutes'));
 app.use('/api/files', require('./routes/fileRoutes'));
 
 
