@@ -22,7 +22,7 @@ const app = express();
 // CORS (Cross-Origin Resource Sharing) middleware'ini etkinleştir
 app.use(cors());
 
-// Gelen isteklerdeki JSON verilerini okuyabilmek için
+// Gelen isteklerdeki JSON verilerini okuyabilmek için body-parser yerine express'in kendi middleware'i kullan
 app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ limit: '100mb', extended: true }));
 

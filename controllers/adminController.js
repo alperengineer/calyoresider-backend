@@ -48,5 +48,41 @@ exports.updateAyarlar = async (req, res) => {
     }
 };
 
+
 // --- Etkinlik Yönetimi ---
-// Etkinlik için create, update, delete fonksiyonları da Haber'dekine benzer şekilde buraya eklenebilir.
+
+// Yeni Etkinlik Oluştur
+exports.createEtkinlik = async (req, res) => {
+    try {
+        const yeniEtkinlik = new Etkinlik(req.body);
+        await yeniEtkinlik.save();
+        res.status(201).json(yeniEtkinlik);
+    } catch (error) {
+        res.status(500).json({ message: 'Etkinlik oluşturulurken hata oluştu.', error });
+    }
+};
+
+// Etkinlik Güncelle (UPDATE)
+exports.updateEtkinlik = async (req, res) => {
+    try {
+        const etkinlik = await Etkinlik.findByIdAndUpdate(req.params.id, req.body, { 
+            new: true,           // Güncellenmiş dökümanı döndür
+            runValidators: true  // Modeldeki validasyonları çalıştır
+        });
+        if (!etkinlik) return res.status(404).json({ message: 'Etkinlik bulunamadı' });
+        res.status(200).json(etkinlik);
+    } catch (error) {
+        res.status(500).json({ message: 'Etkinlik güncellenirken hata oluştu.', error });
+    }
+};
+
+// Etkinlik Sil (DELETE)
+exports.deleteEtkinlik = async (req, res) => {
+    try {
+        const etkinlik = await Etkinlik.findByIdAndDelete(req.params.id);
+        if (!etkinlik) return res.status(404).json({ message: 'Etkinlik bulunamadı' });
+        res.status(204).send(); // İşlem başarılı, içerik yok
+    } catch (error) {
+        res.status(500).json({ message: 'Etkinlik silinirken hata oluştu.', error });
+    }
+};

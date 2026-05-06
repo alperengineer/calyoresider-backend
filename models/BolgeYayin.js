@@ -5,9 +5,11 @@ const bolgeYayinSchema = new mongoose.Schema({
     yazar: { type: String },
     aciklama: { type: String },
     fiyat: { type: Number, default: 0 },
-    kapakResmiDosyaAdi: { type: String }
+    kapakResmiDosyaAdi: { type: String },
+    okunabilirMi: { type: Boolean, default: false },
+    okumaKlasoru: { type: String, default: "" }
 }, {
-    collection: 'bolge_yayinlari', // Veritabanındaki koleksiyon adı
+    collection: 'bolge_yayinlari', // Veritaban覺ndaki koleksiyon ad覺
     toJSON: {
         transform: function (doc, ret) {
             ret.id = ret._id;

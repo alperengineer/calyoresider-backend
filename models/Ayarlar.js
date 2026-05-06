@@ -9,8 +9,10 @@ const ayarlarSchema = new mongoose.Schema({
     adres: { type: String, default: "" },
     telefon: { type: String, default: "" },
     email: { type: String, default: "" },
+    bursDuyuruAktif: { type: Boolean, default: false },
+    bursDuyuruBaslik: { type: String, default: "" },
+    bursDuyuruMetin: { type: String, default: "" },
+    bursDuyuruResim: { type: String, default: "" },
 }, { collection: 'ayarlar' });
 
-// Ayarlar koleksiyonunda her zaman tek bir döküman olmasını sağlamak için
-// bu model "singleton" mantığıyla kullanılacak.
 module.exports = mongoose.model('Ayarlar', ayarlarSchema);
