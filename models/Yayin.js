@@ -8,7 +8,7 @@ const yayinSchema = new mongoose.Schema({
     fiyat: { type: Number, default: 0 },
     kapakResmiDosyaAdi: { type: String },
     okunabilirMi: { type: Boolean, default: false },
-    okumaKlasörü: { type: String, default: '' }
+    okumaKlasoru: { type: String, default: '' } // <-- BURASI DÜZELTİLDİ
 }, {
     collection: 'yayinlar',
     toJSON: {
