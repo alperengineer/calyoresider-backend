@@ -39,6 +39,7 @@ app.use('/api/yayinlar', require('./routes/yayinRoutes.js'));
 app.use('/api/bolge-yayinlari', require('./routes/bolgeYayinRoutes'));
 app.use('/api/books', require('./routes/bookReadRoutes'));
 app.use('/api/files', require('./routes/fileRoutes'));
+app.use('/api/burs-basvurulari', require('./routes/bursBasvuruRoutes'));
 
 
 // --- FULL-STACK İÇİN GEREKLİ STATİK YAYINLAMA ---
